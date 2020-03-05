@@ -3,7 +3,7 @@ from OpenGL.GLU import *
 from OpenGL.GL import *
 import math
 
-cores = ( (1,0,0),(1,1,0),(0,1,0),(0,1,1),(0,0,1),(1,0,1),(0.5,1,1),(1,0,0.5) )    
+cores = ( (1,0,0),(1,1,0),(0,1,0),(0,1,1),(0,0,1),(1,0,1),(0.5,1,1),(1,0,0.5) )   
 
 def Piramide():
     glBegin(GL_TRIANGLES)
