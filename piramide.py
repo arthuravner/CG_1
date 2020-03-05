@@ -3,6 +3,29 @@ from OpenGL.GLU import *
 from OpenGL.GL import *
 import math
 
+vertices = []
+linhas = []
+faces = []
+ 
+n = 20
+r = 2
+a = 2*math.pi/n
+
+vertices += [[0,1,0]]
+
+for i in range(0,n):
+    x = r*math.cos(i*a)
+    y = 0
+    z = r*math.sin(i*a)
+   
+    vertices += [[x,y,z]]
+    linhas += [[0, i+1]]
+
+    if(i < n-1):
+        faces += [[0, i+1, i+2]]
+    else:
+        faces += [[0, i+1, 1]]  
+
 cores = ( (1,0,0),(1,1,0),(0,1,0),(0,1,1),(0,0,1),(1,0,1),(0.5,1,1),(1,0,0.5) )   
 
 def Piramide():
@@ -34,30 +57,6 @@ def timer(i):
     glutTimerFunc(50,timer,1)
 
 # PROGRAMA PRINCIPAL
-vertices = []
-linhas = []
-faces = []
- 
-n = 20
-r = 2
-a = 2*math.pi/n
-
-vertices += [[0,1,0]]
-
-for i in range(0,n):
-    x = r*math.cos(i*a)
-    y = 0
-    z = r*math.sin(i*a)
-   
-    vertices += [[x,y,z]]
-    linhas += [[0, i+1]]
-
-    if(i < n-1):
-        faces += [[0, i+1, i+2]]
-    else:
-        faces += [[0, i+1, 1]]  
-
-
 glutInit(sys.argv)
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE)
 glutInitWindowSize(800,600)
